@@ -1,10 +1,8 @@
 import Link from "next/link";
 
 export const hours = [
-  { days: "Monday to Thursday", time: "7am to 6pm" },
-  { days: "Friday", time: "7am to 10pm" },
-  { days: "Saturday", time: "8am to 6pm" },
-  { days: "Sunday", time: "8am to 4pm" },
+  { days: "Monday to Friday", time: "6am to 8pm" },
+  { days: "Saturday", time: "7am to 9pm" },
 ];
 
 export function SiteFooter() {
