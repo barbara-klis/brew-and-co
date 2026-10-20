@@ -1,0 +1,144 @@
+/*
+ * Brew & Co design tokens — Tailwind CSS v4.
+ *
+ * Usage: in app/globals.css, after `@import "tailwindcss";`, add
+ *   @import "../docs/design/tokens.css";
+ * and delete the starter :root / @theme / body rules.
+ * Utilities then work as: bg-paper, text-ink, bg-crema, font-display, rounded-cup, etc.
+ */
+
+/* ---------- Raw values -> Tailwind utilities ---------- */
+@theme {
+  /* Color: brand */
+  --color-crema-50: #fff1e9;
+  --color-crema-300: #ffb48a;
+  --color-crema-500: #ff7a3d; /* signature orange. Fills and display type only (2.6:1 on white) */
+  --color-crema-700: #c74a12; /* orange that is safe for body-size text/links (4.8:1 on white) */
+
+  /* Color: neutrals */
+  --color-cup: #ffffff;       /* the paper cup, cards-as-objects, inputs */
+  --color-mist: #e9eaec;      /* cool grey studio backdrop */
+  --color-mist-deep: #d5d7db; /* borders, dividers */
+  --color-lid: #2b2b2d;       /* charcoal, the cup lid */
+  --color-ink: #161617;       /* text */
+  --color-ink-soft: #55575c;  /* secondary text (7.0:1 on white) */
+
+  /* Color: accent (nail-polish blush from the Roasta reference), used sparingly */
+  --color-blush: #d9a99b;
+  --color-blush-50: #f6e9e5;
+
+  /* Color: feedback */
+  --color-success: #1f7a4d;
+  --color-warning: #8a5a00;
+  --color-danger: #b3261e;
+
+  /* Type families (loaded in app/layout.tsx via next/font) */
+  --font-display: var(--font-outfit), ui-rounded, system-ui, sans-serif;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-marker: var(--font-permanent-marker), "Marker Felt", cursive;
+
+  /* Type scale (fluid display sizes, fixed UI sizes) */
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.4;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.5;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.25;
+  --text-h2: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  --text-h2--line-height: 1.08;
+  --text-h1: clamp(2.75rem, 1.6rem + 5vw, 5.5rem);
+  --text-h1--line-height: 0.98;
+  --text-mega: clamp(4.5rem, 0.2rem + 24vw, 22rem);
+  --text-mega--line-height: 0.82;
+
+  /* Radius: three shapes, each with a job */
+  --radius-cup: 1.75rem;   /* product tiles and large surfaces */
+  --radius-control: 0.75rem; /* inputs, small surfaces */
+  --radius-pill: 999px;    /* buttons, chips */
+
+  /* Elevation: soft and cool, like a cup on a table. One lift level plus one pressed. */
+  --shadow-lift: 0 18px 30px -18px rgb(22 22 23 / 0.35), 0 2px 4px rgb(22 22 23 / 0.06);
+  --shadow-press: 0 4px 8px -4px rgb(22 22 23 / 0.3);
+
+  /* Motion */
+  --ease-pour: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-quick: 140ms;
+  --duration-base: 240ms;
+  --duration-slow: 520ms;
+
+  /* Breakpoints */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}
+
+/* ---------- Semantic roles (switch with theme) ---------- */
+:root {
+  --background: var(--color-mist);
+  --surface: var(--color-cup);
+  --surface-inverse: var(--color-lid);
+  --foreground: var(--color-ink);
+  --foreground-muted: var(--color-ink-soft);
+  --border: var(--color-mist-deep);
+  --accent: var(--color-crema-500);
+  --accent-text: var(--color-crema-700);
+  --on-accent: var(--color-ink);
+  --focus-ring: var(--color-ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121213;
+    --surface: #1d1d1f;
+    --surface-inverse: #f3f3f1;
+    --foreground: #f3f3f1;
+    --foreground-muted: #a9abb0;
+    --border: #2f3033;
+    --accent: var(--color-crema-500);
+    --accent-text: #ff9a67; /* 7.9:1 on #121213 */
+    --on-accent: var(--color-ink);
+    --focus-ring: #f3f3f1;
+  }
+}
+
+/* Expose semantic roles as utilities: bg-background, bg-surface, text-foreground, text-muted, border-line, bg-accent */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-inverse: var(--surface-inverse);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--foreground-muted);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+}
+
+/* ---------- Base ---------- */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-control);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

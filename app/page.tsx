@@ -1,69 +1,116 @@
 import Image from "next/image";
+import { Suspense } from "react";
+import { connection } from "next/server";
+import { EventCard } from "@/components/event-card";
+import { ReserveButton } from "@/components/reservation-provider";
+import { hours } from "@/components/site-footer";
+import { Button } from "@/components/ui/button";
+import { ProductTile } from "@/components/ui/product-tile";
+import { Section, SectionHeading } from "@/components/ui/section";
+import { getUpcomingEvents } from "@/lib/events";
+import { getPopularItems } from "@/lib/menu";
 
 export default function Home() {
+  const popular = getPopularItems();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      <div className="relative isolate flex min-h-[min(calc(100svh-4.5rem),56rem)] flex-col justify-end overflow-hidden">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/hero.webp"
+          alt="Leather armchairs and wooden tables in a bright café with framed prints on a dark wall"
+          fill
           priority
+          sizes="100vw"
+          className="-z-20 object-cover"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        <div aria-hidden className="absolute inset-0 -z-10 bg-ink/65" />
+
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -left-[0.06em] top-[6%] -z-5 select-none font-display text-mega font-semibold tracking-[-0.04em] whitespace-nowrap text-accent motion-safe:animate-[slide-in-left_var(--duration-slow)_var(--ease-pour)_both]"
+        >
+          brew&amp;co
+        </span>
+
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 px-4 pb-16 text-cup md:px-8 xl:px-12">
+          <h1 className="max-w-[14ch] font-display text-h1 font-semibold tracking-[-0.03em]">
+            Fresh-roasted. Ready when you are.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="max-w-prose text-lead">
+            Specialty coffee, pastries baked each morning and light lunches, on a Brooklyn corner.
           </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <ReserveButton size="lg" />
+            <Button href="/menu" variant="quiet" size="lg" className="border-cup/60! text-cup! hover:bg-cup/15!">
+              See the menu
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      <Section aria-labelledby="popular-title">
+        <SectionHeading
+          id="popular-title"
+          title="What people order most"
+          intro="The drinks and bakes that regulars come back for."
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {popular.map((item) => (
+            <ProductTile key={item.name} item={item} />
+          ))}
         </div>
-      </main>
+        <div className="mt-12">
+          <Button href="/menu" variant="secondary" size="lg">
+            See the full menu
+          </Button>
+        </div>
+      </Section>
+
+      <Section aria-labelledby="events-title" className="pt-0 lg:pt-0">
+        <SectionHeading
+          id="events-title"
+          title="Upcoming events"
+          intro="Open mic every Friday evening. Coffee tasting every Saturday morning."
+        />
+        <Suspense fallback={<p className="text-muted">Loading events</p>}>
+          <UpcomingEvents />
+        </Suspense>
+      </Section>
+
+      <Section aria-labelledby="visit-title" className="pt-0 lg:pt-0">
+        <div className="grid gap-12 rounded-cup bg-surface p-8 shadow-lift md:grid-cols-2 md:p-12">
+          <div className="flex flex-col items-start gap-4">
+            <h2 id="visit-title" className="font-display text-h2 font-semibold tracking-[-0.02em]">
+              Save a seat
+            </h2>
+            <p className="max-w-prose text-muted">
+              Walk-ins are always welcome. If you&apos;re coming with friends or for an event night, reserve a table and we&apos;ll hold it.
+            </p>
+            <ReserveButton size="lg" />
+          </div>
+          <dl className="flex flex-col gap-2 tabular-nums">
+            {hours.map(({ days, time }) => (
+              <div key={days} className="flex justify-between gap-4 border-b border-line pb-2">
+                <dt>{days}</dt>
+                <dd className="text-muted">{time}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </Section>
+    </>
+  );
+}
+
+async function UpcomingEvents() {
+  await connection(); // reads the clock, so render at request time
+  const events = getUpcomingEvents(4);
+  return (
+    <div className="grid gap-6 lg:grid-cols-2">
+      {events.map((event) => (
+        <EventCard key={event.id} event={event} />
+      ))}
     </div>
   );
 }

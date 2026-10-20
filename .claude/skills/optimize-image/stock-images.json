@@ -1,0 +1,182 @@
+[
+  {
+    "name": "hero",
+    "url": "https://images.pexels.com/photos/2530586/pexels-photo-2530586.jpeg",
+    "width": 2000
+  },
+  {
+    "name": "espresso",
+    "url": "https://images.pexels.com/photos/9050518/pexels-photo-9050518.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "americano",
+    "url": "https://images.pexels.com/photos/1233528/pexels-photo-1233528.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "cortado",
+    "url": "https://images.pexels.com/photos/14704662/pexels-photo-14704662.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "flat-white",
+    "url": "https://images.pexels.com/photos/544113/pexels-photo-544113.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "latte",
+    "url": "https://images.pexels.com/photos/30119453/pexels-photo-30119453.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "cappuccino",
+    "url": "https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "mocha",
+    "url": "https://images.pexels.com/photos/14761085/pexels-photo-14761085.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "iced-latte",
+    "url": "https://images.pexels.com/photos/8791796/pexels-photo-8791796.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "cold-brew",
+    "url": "https://images.pexels.com/photos/17576001/pexels-photo-17576001.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "cold-brew-float",
+    "url": "https://images.pexels.com/photos/10540639/pexels-photo-10540639.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "matcha",
+    "url": "https://images.pexels.com/photos/32972501/pexels-photo-32972501.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "lemonade",
+    "url": "https://images.pexels.com/photos/4134388/pexels-photo-4134388.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "butter-croissant",
+    "url": "https://images.pexels.com/photos/30403209/pexels-photo-30403209.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "almond-croissant",
+    "url": "https://images.pexels.com/photos/30666847/pexels-photo-30666847.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "blueberry-muffin",
+    "url": "https://images.pexels.com/photos/7935281/pexels-photo-7935281.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "cinnamon-roll",
+    "url": "https://images.pexels.com/photos/3434526/pexels-photo-3434526.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "cookie",
+    "url": "https://images.pexels.com/photos/1775283/pexels-photo-1775283.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "egg-sandwich",
+    "url": "https://images.pexels.com/photos/14415397/pexels-photo-14415397.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "turkey-brie",
+    "url": "https://images.pexels.com/photos/1437600/pexels-photo-1437600.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "caprese",
+    "url": "https://images.pexels.com/photos/11280378/pexels-photo-11280378.jpeg",
+    "width": 800,
+    "height": 1000,
+    "fit": "cover"
+  },
+  {
+    "name": "event-open-mic",
+    "url": "https://images.pexels.com/photos/6670752/pexels-photo-6670752.jpeg",
+    "width": 800,
+    "height": 600,
+    "fit": "cover"
+  },
+  {
+    "name": "event-tasting",
+    "url": "https://images.pexels.com/photos/34505585/pexels-photo-34505585.jpeg",
+    "width": 800,
+    "height": 600,
+    "fit": "cover"
+  },
+  {
+    "name": "about-shop",
+    "url": "https://images.pexels.com/photos/32989060/pexels-photo-32989060.jpeg",
+    "width": 1000,
+    "height": 1333,
+    "fit": "cover"
+  },
+  {
+    "name": "about-pour-over",
+    "url": "https://images.pexels.com/photos/15672170/pexels-photo-15672170.jpeg",
+    "width": 1000,
+    "height": 1250,
+    "fit": "cover"
+  },
+  {
+    "name": "about-baker",
+    "url": "https://images.pexels.com/photos/7447297/pexels-photo-7447297.jpeg",
+    "width": 1200,
+    "height": 900,
+    "fit": "cover"
+  }
+]

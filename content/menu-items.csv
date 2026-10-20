@@ -1,0 +1,21 @@
+category,name,description,price,badge,image
+Espresso drinks,Espresso,"A double shot of our house blend, rich and syrupy with dark chocolate notes.",3.00,,espresso.webp
+Espresso drinks,Americano,"Double espresso topped with hot water for a long, clean cup.",3.75,,americano.webp
+Espresso drinks,Cortado,"Equal parts espresso and steamed milk in a small glass. Strong and smooth.",4.25,,cortado.webp
+Espresso drinks,Flat White,"Double espresso with silky microfoam. Our most-ordered drink.",4.75,Popular,flat-white.webp
+Espresso drinks,Latte,"Double espresso with steamed milk and a thin layer of foam. Add vanilla, caramel or hazelnut for 0.60.",5.00,,latte.webp
+Espresso drinks,Cappuccino,"Espresso with equal parts steamed milk and thick, airy foam. Dusted with cocoa.",4.75,,cappuccino.webp
+Espresso drinks,Brew & Co Mocha,"Espresso, dark chocolate sauce and steamed milk, finished with whipped cream.",5.50,House favorite,mocha.webp
+Cold drinks,Iced Latte,"Double espresso poured over cold milk and ice. Oat, almond and soy available.",5.25,,iced-latte.webp
+Cold drinks,Cold Brew,"Coarse-ground beans steeped for 18 hours. Smooth, low acidity, served over ice.",4.75,Popular,cold-brew.webp
+Cold drinks,Vanilla Cold Brew Float,"Cold brew topped with house vanilla sweet cream that slowly swirls through.",5.75,House favorite,cold-brew-float.webp
+Cold drinks,Iced Matcha Latte,"Ceremonial-grade matcha whisked with milk and ice. Lightly sweetened.",5.50,,matcha.webp
+Cold drinks,Fresh Lemonade,"Squeezed to order with real lemons and a little cane sugar. Add mint if you like.",4.00,,lemonade.webp
+Pastries,Butter Croissant,"Laminated daily in small batches. Flaky outside, tender inside.",3.75,Popular,butter-croissant.webp
+Pastries,Almond Croissant,"Filled with almond cream and topped with toasted flaked almonds.",4.50,,almond-croissant.webp
+Pastries,Blueberry Muffin,"Baked with whole blueberries and a crunchy sugar top.",3.50,,blueberry-muffin.webp
+Pastries,Cinnamon Roll,"Soft, spiralled dough with cinnamon sugar and cream cheese icing. Served warm.",4.50,House favorite,cinnamon-roll.webp
+Pastries,Chocolate Chip Cookie,"Brown butter dough with dark chocolate chunks and flaky sea salt.",3.00,,cookie.webp
+Sandwiches,Egg & Cheddar Breakfast Sandwich,"Soft scrambled egg and sharp cheddar on a toasted brioche bun. Served until 11am.",7.50,Popular,egg-sandwich.webp
+Sandwiches,Turkey & Brie,"Roast turkey, brie, apple slices and arugula on sourdough with honey mustard.",9.50,,turkey-brie.webp
+Sandwiches,Caprese Ciabatta,"Fresh mozzarella, tomato and basil pesto on toasted ciabatta. Vegetarian.",8.75,,caprese.webp
